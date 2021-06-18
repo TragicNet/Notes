@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditActivity"
-    android:padding="3dp" >
+    android:padding="3dp"
+    tools:context=".EditActivity">
 
     <EditText
-        android:id="@+id/noteName"
+        android:id="@+id/noteNameView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -20,28 +20,31 @@
         tools:layout_editor_absoluteX="3dp" />
 
     <EditText
-        android:id="@+id/noteDescription"
+        android:id="@+id/noteDescriptionView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:gravity="start|top"
+        android:hint="@string/descriptionString"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/applyButton"
-        app:layout_constraintTop_toBottomOf="@+id/noteName"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noteNameView"
+        tools:layout_editor_absoluteX="3dp"
+        android:padding="2dp" />
 
-    <Button
-        android:id="@+id/applyButton"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/updateNoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/applyString"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:clickable="true"
+        android:src="@drawable/ic_check"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
+        app:maxImageSize="32dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

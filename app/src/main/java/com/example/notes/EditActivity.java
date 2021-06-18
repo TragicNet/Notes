@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Objects;
 
@@ -16,6 +17,12 @@ public class EditActivity extends AppCompatActivity {
 
     Note note;
     int noteID;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +36,20 @@ public class EditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         noteID = intent.getIntExtra("noteID", -1);
 
-        EditText noteName = ((EditText) findViewById(R.id.noteName));
-        EditText noteDescription = ((EditText) findViewById(R.id.noteDescription));
+        EditText noteName = ((EditText) findViewById(R.id.noteNameView));
+        EditText noteDescription = ((EditText) findViewById(R.id.noteDescriptionView));
 
         // Show details of note at given position
         if(noteID != -1) {
             note = (Note) MainActivity.notes.get(noteID);
             noteName.setText(note.getName());
             noteDescription.setText(note.getDescription());
-
+        } else {
+            note = new Note("");
         }
 
-        Button applyButton = (Button) findViewById(R.id.applyButton);
-        applyButton.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton updateNoteButton = (FloatingActionButton) findViewById(R.id.updateNoteButton);
+        updateNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String name = noteName.getText().toString();
@@ -52,8 +60,12 @@ public class EditActivity extends AppCompatActivity {
                     Toast.makeText(EditActivity.this, "Enter a Valid Name", Toast.LENGTH_SHORT).show();
                 } else {
                     // Set members of note
-                    note.setName(name);
-                    note.setDescription(data);
+                    if(noteID != -1) {
+                        note.setName(name);
+                        note.setDescription(data);
+                    } else {
+                        MainActivity.notes.add(note);
+                    }
 
                     // Notify the adapter in MainActivity
                     MainActivity.adapter.notifyDataSetChanged();

@@ -1,6 +1,8 @@
 package com.example.notes;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -39,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView notesList = (ListView) findViewById(R.id.notesList);
+        ListView notesList = (ListView) findViewById(R.id.notesListView);
 
         weakAppContext = new WeakReference<>(getApplicationContext());
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -50,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         if(notes == null) {
             notes = new ArrayList<>();
-            notes.add(new Note("Example Note"));
+            notes.add(new Note("New Note"));
         }
 
         adapter = new NoteAdapter(this, R.layout.note_list_item, notes);
@@ -62,6 +65,38 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), EditActivity.class);
                 intent.putExtra("noteID", position);
                 startActivity(intent);
+            }
+        });
+
+        notesList.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                new AlertDialog.Builder(MainActivity.this)
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .setTitle("Delete?")
+                        .setMessage("Are you sure you want to delete this note?")
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which)
+                            {
+                                notes.remove(position);
+                                adapter.notifyDataSetChanged();
+                            }
+                        })
+
+                        .setNegativeButton("No", null)
+                        .show();
+                return true;
+            }
+        });
+
+        FloatingActionButton createNoteButton = (FloatingActionButton) findViewById(R.id.createNoteButton);
+        createNoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+                startActivity(intent);
+                //MainActivity.adapter.notifyDataSetChanged();
             }
         });
 
