@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp">
+
+    <TextView
+        android:id="@+id/note_list_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxEms="11"
+        android:text="Text"
+        android:textSize="18sp"
+        android:layout_margin="5dp"
+        tools:ignore="HardcodedText" />
+</RelativeLayout>
