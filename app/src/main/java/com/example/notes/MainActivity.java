@@ -17,7 +17,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+// Hello
     static ArrayList<Note> notes;
     static NoteAdapter adapter;
 
