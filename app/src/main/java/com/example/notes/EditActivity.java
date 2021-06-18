@@ -59,12 +59,6 @@ public class EditActivity extends AppCompatActivity {
                     MainActivity.adapter.notifyDataSetChanged();
 
                     // Save data Permanently
-//                    SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-//                    SharedPreferences.Editor editor = sharedPrefs.edit();
-//                    Gson gson = new Gson();
-//                    String json = gson.toJson(MainActivity.notes);
-//                    editor.putString("notes", json);
-//                    editor.apply();
                     MainActivity.saveNotes();
 
                     // Finish Activity
