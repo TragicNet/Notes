@@ -36,19 +36,19 @@ public class EditActivity extends AppCompatActivity {
         Intent intent = getIntent();
         noteID = intent.getIntExtra("noteID", -1);
 
-        EditText noteName = ((EditText) findViewById(R.id.noteNameView));
-        EditText noteDescription = ((EditText) findViewById(R.id.noteDescriptionView));
+        EditText noteName = findViewById(R.id.noteNameView);
+        EditText noteDescription = findViewById(R.id.noteDescriptionView);
 
         // Show details of note at given position
         if(noteID != -1) {
-            note = (Note) MainActivity.notes.get(noteID);
+            note = MainActivity.notes.get(noteID);
             noteName.setText(note.getName());
             noteDescription.setText(note.getDescription());
         } else {
             note = new Note("");
         }
 
-        FloatingActionButton updateNoteButton = (FloatingActionButton) findViewById(R.id.updateNoteButton);
+        FloatingActionButton updateNoteButton = findViewById(R.id.updateNoteButton);
         updateNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,10 +60,9 @@ public class EditActivity extends AppCompatActivity {
                     Toast.makeText(EditActivity.this, "Enter a Valid Name", Toast.LENGTH_SHORT).show();
                 } else {
                     // Set members of note
-                    if(noteID != -1) {
-                        note.setName(name);
-                        note.setDescription(data);
-                    } else {
+                    note.setName(name);
+                    note.setDescription(data);
+                    if(noteID == -1) {
                         MainActivity.notes.add(note);
                     }
 

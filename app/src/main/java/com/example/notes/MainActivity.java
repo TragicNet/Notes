@@ -22,7 +22,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-// Hello
+
     static ArrayList<Note> notes;
     static NoteAdapter adapter;
 
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ListView notesList = (ListView) findViewById(R.id.notesListView);
+        ListView notesList = findViewById(R.id.notesListView);
 
         weakAppContext = new WeakReference<>(getApplicationContext());
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
@@ -90,13 +90,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        FloatingActionButton createNoteButton = (FloatingActionButton) findViewById(R.id.createNoteButton);
+        FloatingActionButton createNoteButton = findViewById(R.id.createNoteButton);
         createNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), EditActivity.class);
                 startActivity(intent);
-                //MainActivity.adapter.notifyDataSetChanged();
             }
         });
 
