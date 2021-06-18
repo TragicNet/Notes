@@ -1,5 +1,6 @@
 package com.example.notes;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.ref.WeakReference;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -21,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
     static ArrayList<Note> notes;
     static NoteAdapter adapter;
 
+    static WeakReference<Context> weakAppContext;
+
+    public static void saveNotes() {
+        SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(weakAppContext.get());
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(MainActivity.notes);
+        editor.putString("notes", json);
+        editor.apply();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
         ListView notesList = (ListView) findViewById(R.id.notesList);
 
+        weakAppContext = new WeakReference<>(getApplicationContext());
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         Gson gson = new Gson();
         String json = sharedPrefs.getString("notes", "");

@@ -1,21 +1,15 @@
 package com.example.notes;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.gson.Gson;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.HashSet;
 import java.util.Objects;
 
 public class EditActivity extends AppCompatActivity {
@@ -65,12 +59,13 @@ public class EditActivity extends AppCompatActivity {
                     MainActivity.adapter.notifyDataSetChanged();
 
                     // Save data Permanently
-                    SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                    SharedPreferences.Editor editor = sharedPrefs.edit();
-                    Gson gson = new Gson();
-                    String json = gson.toJson(MainActivity.notes);
-                    editor.putString("notes", json);
-                    editor.apply();
+//                    SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+//                    SharedPreferences.Editor editor = sharedPrefs.edit();
+//                    Gson gson = new Gson();
+//                    String json = gson.toJson(MainActivity.notes);
+//                    editor.putString("notes", json);
+//                    editor.apply();
+                    MainActivity.saveNotes();
 
                     // Finish Activity
                     finish();
