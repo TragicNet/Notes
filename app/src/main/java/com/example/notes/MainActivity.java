@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    // abcd
+    // abc
 
     static ArrayList<Note> notes;
     static NoteAdapter adapter;
