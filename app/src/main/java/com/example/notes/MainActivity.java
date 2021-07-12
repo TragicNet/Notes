@@ -35,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
 
         switch(type) {
             case 1:
-                comparator = Note.comparatorModifiedAt;
+                comparator = Note.comparatorCreatedAt;
                 break;
             default:
-                comparator = Note.comparatorCreatedAt;
+                comparator = Note.comparatorModifiedAt;
         }
 
         // Sort the notes
