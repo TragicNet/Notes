@@ -48,16 +48,16 @@ public class Note {
     public void setModified_at(Date modified_at) { this.modified_at = modified_at; }
 
     public static Comparator<Note> comparatorCreatedAt = new Comparator<Note>() {
-
         @Override
         public int compare(Note o1, Note o2) {
-            if(o1.getCreated_at().before(o2.getCreated_at())) {
-                return 1;
-            } else if(o1.getCreated_at().after(o2.getCreated_at())) {
-                return -1;
-            } else {
-                return 0;
-            }
+            return o2.getCreated_at().compareTo(o1.getCreated_at());
+        }
+    };
+
+    public static Comparator<Note> comparatorModifiedAt = new Comparator<Note>() {
+        @Override
+        public int compare(Note o1, Note o2) {
+            return o2.getModified_at().compareTo(o1.getModified_at());
         }
     };
 

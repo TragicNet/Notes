@@ -34,7 +34,11 @@ public class MainActivity extends AppCompatActivity {
         Comparator<Note> comparator;
 
         switch(type) {
-            default:    comparator = Note.comparatorCreatedAt;
+            case 1:
+                comparator = Note.comparatorModifiedAt;
+                break;
+            default:
+                comparator = Note.comparatorCreatedAt;
         }
 
         // Sort the notes
@@ -45,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void sortNotes() {
-        MainActivity.sortNotes(0);
+        int type = 0;
+        MainActivity.sortNotes(type);
     }
 
     public static void saveNotes() {
