@@ -68,9 +68,6 @@ public class EditActivity extends AppCompatActivity {
                         MainActivity.notes.add(note);
                     }
 
-                    // Notify the adapter in MainActivity
-                    MainActivity.adapter.notifyDataSetChanged();
-
                     // Save data Permanently
                     MainActivity.saveNotes();
 

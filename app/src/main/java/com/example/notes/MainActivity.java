@@ -20,23 +20,48 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.ref.WeakReference;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity {
-
-    // abc
 
     static ArrayList<Note> notes;
     static NoteAdapter adapter;
 
     static WeakReference<Context> weakAppContext;
 
+    public static void sortNotes(int type) {
+        Comparator<Note> comparator;
+
+        switch(type) {
+            default:    comparator = Note.comparatorCreatedAt;
+        }
+
+        // Sort the notes
+        Collections.sort(MainActivity.notes, comparator);
+
+        // Notify the adapter in MainActivity
+        MainActivity.adapter.notifyDataSetChanged();
+    }
+
+    public static void sortNotes() {
+        MainActivity.sortNotes(0);
+    }
+
     public static void saveNotes() {
+        // Sort by date created
+        Collections.sort(MainActivity.notes, Note.comparatorCreatedAt);
+
+        // Save to Shared Preferences
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(weakAppContext.get());
         SharedPreferences.Editor editor = sharedPrefs.edit();
         Gson gson = new Gson();
         String json = gson.toJson(MainActivity.notes);
         editor.putString("notes", json);
         editor.apply();
+
+        // Sort according to current settings
+        MainActivity.sortNotes();
     }
 
     @Override
@@ -61,6 +86,9 @@ public class MainActivity extends AppCompatActivity {
         adapter = new NoteAdapter(this, R.layout.note_list_item, notes);
         notesList.setAdapter(adapter);
 
+        // Save Notes
+        MainActivity.saveNotes();
+
         notesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -82,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                             public void onClick(DialogInterface dialog, int which)
                             {
                                 notes.remove(position);
-                                adapter.notifyDataSetChanged();
+                                MainActivity.saveNotes();
                             }
                         })
 

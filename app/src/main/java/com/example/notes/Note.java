@@ -3,6 +3,7 @@ package com.example.notes;
 import androidx.annotation.NonNull;
 
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.Date;
 
 public class Note {
@@ -45,5 +46,19 @@ public class Note {
     public Date getModified_at() { return modified_at; }
 
     public void setModified_at(Date modified_at) { this.modified_at = modified_at; }
+
+    public static Comparator<Note> comparatorCreatedAt = new Comparator<Note>() {
+
+        @Override
+        public int compare(Note o1, Note o2) {
+            if(o1.getCreated_at().before(o2.getCreated_at())) {
+                return 1;
+            } else if(o1.getCreated_at().after(o2.getCreated_at())) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+    };
 
 }
