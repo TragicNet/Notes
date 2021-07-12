@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.util.Calendar;
 import java.util.Objects;
 
 public class EditActivity extends AppCompatActivity {
@@ -62,6 +63,7 @@ public class EditActivity extends AppCompatActivity {
                     // Set members of note
                     note.setName(name);
                     note.setDescription(data);
+                    note.setModified_at(Calendar.getInstance().getTime());
                     if(noteID == -1) {
                         MainActivity.notes.add(note);
                     }

@@ -10,9 +10,23 @@
         android:id="@+id/note_list_item_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
         android:maxEms="11"
         android:text="Text"
         android:textSize="18sp"
-        android:layout_margin="5dp"
         tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/note_list_item_modified"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/note_list_item_name"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="5dp"
+        android:text="Date/Time"
+        android:textSize="12sp"
+        tools:ignore="HardcodedText" />
+
 </RelativeLayout>
