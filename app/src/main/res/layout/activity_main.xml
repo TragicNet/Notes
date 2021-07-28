@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:padding="3dp" >
+    android:background="?attr/common.bg"
+    tools:context=".MainActivity">
 
     <ListView
         android:id="@+id/notesListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" >
+        android:layout_margin="3dp"
+        tools:layout_editor_absoluteX="6dp">
 
     </ListView>
 
@@ -25,8 +25,11 @@
         android:layout_marginBottom="18dp"
         android:clickable="true"
         android:src="@drawable/ic_add"
+        app:tint="?attr/common.bg"
+        app:backgroundTint="?attr/common.accent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:maxImageSize="32dp" />
+        app:maxImageSize="32dp"
+        android:focusable="true" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //Objects.requireNonNull(getSupportActionBar()).hide();
 
         ListView notesList = findViewById(R.id.notesListView);
 

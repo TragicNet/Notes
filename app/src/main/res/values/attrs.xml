@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="colorOnPrimaryVariant" format="reference" />
+    <attr name="common.accent" format="reference" />
+    <attr name="common.bg" format="reference" />
+    <attr name="common.fg" format="reference" />
+    <attr name="common.ui" format="reference" />
+    <attr name="ui.panel.border" format="reference" />
+    <attr name="ui.selection.bg" format="reference" />
+
+</resources>
