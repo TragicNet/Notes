@@ -8,6 +8,8 @@
         <item name="ui.panel.border">@color/dark_ui.panel.border</item>
         <item name="ui.selection.bg">@color/dark_ui.selection.bg</item>
 
+        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
+
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/dark_common.accent</item>
         <item name="colorPrimaryVariant">@color/dark_common.accent</item>
@@ -22,4 +24,12 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
 </resources>
