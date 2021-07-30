@@ -4,24 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/common.bg"
+    android:background="?ui.panel.border"
     tools:context=".MainActivity">
+
+    <include layout="@layout/toolbar" />
 
     <ListView
         android:id="@+id/notesListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="3dp"
-        tools:layout_editor_absoluteX="6dp">
-
-    </ListView>
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:padding="6dp"
+        android:listSelector="@drawable/note_list_selector"
+        android:divider="@null"
+        android:dividerHeight="6dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/createNoteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="18dp"
-        android:layout_marginRight="18dp"
         android:layout_marginBottom="18dp"
         android:clickable="true"
         android:src="@drawable/ic_add"

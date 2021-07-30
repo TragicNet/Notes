@@ -67,12 +67,19 @@ public class MainActivity extends AppCompatActivity {
         MainActivity.sortNotes();
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // getSupportActionBar().setDisplayShowTitleEnabled(false);
-        //Objects.requireNonNull(getSupportActionBar()).hide();
+
+//        getSupportActionBar().setDisplayShowTitleEnabled(false);
+//        Objects.requireNonNull(getSupportActionBar()).hide();
+
+        setSupportActionBar(findViewById(R.id.toolbar));
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setIcon(R.drawable.ic_notes);
 
         ListView notesList = findViewById(R.id.notesListView);
 

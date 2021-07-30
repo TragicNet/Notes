@@ -4,7 +4,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="5dp">
+    android:padding="5dp"
+    android:background="@drawable/note_list_selector" >
 
     <TextView
         android:id="@+id/note_list_item_name"
