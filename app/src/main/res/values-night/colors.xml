@@ -12,11 +12,11 @@
     <color name="grey_80">#FFCCCCCC</color>
     <color name="grey_20">#FF333333</color>
 
-    <color name="common.accent">#FF9940</color>
-    <color name="common.bg">#FAFAFA</color>
-    <color name="common.fg">#575F66</color>
-    <color name="common.ui">#8A9199</color>
-    <color name="ui.panel.border">#F0F0F0</color>
-    <color name="ui.selection.bg">#D1E4F4</color>
+    <color name="common.accent">#E6B450</color>
+    <color name="common.bg">#0A0E14</color>
+    <color name="common.fg">#B3B1AD</color>
+    <color name="common.ui">#4D5566</color>
+    <color name="ui.panel.border">#000000</color>
+    <color name="ui.selection.bg">#273747</color>
 
 </resources>
