@@ -1,18 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Theme.Notes" parent="Theme.AppCompat.DayNight.NoActionBar">
-        <item name="common.accent">@color/dark_common.accent</item>
-        <item name="common.bg">@color/dark_common.bg</item>
-        <item name="common.fg">@color/dark_common.fg</item>
-        <item name="common.ui">@color/dark_common.ui</item>
-        <item name="ui.panel.border">@color/dark_ui.panel.border</item>
-        <item name="ui.selection.bg">@color/dark_ui.selection.bg</item>
+        <item name="common.accent">@color/common.accent</item>
+        <item name="common.bg">@color/common.bg</item>
+        <item name="common.fg">@color/common.fg</item>
+        <item name="common.ui">@color/common.ui</item>
+        <item name="ui.panel.border">@color/ui.panel.border</item>
+        <item name="ui.selection.bg">@color/ui.selection.bg</item>
 
         <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
 
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/dark_common.accent</item>
-        <item name="colorPrimaryVariant">@color/dark_common.accent</item>
+        <item name="colorPrimary">@color/common.accent</item>
+        <item name="colorPrimaryVariant">@color/common.accent</item>
         <item name="colorOnPrimary">@color/black</item>
         <item name="colorOnPrimaryVariant">@color/white</item>
 
